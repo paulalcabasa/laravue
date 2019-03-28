@@ -8,7 +8,23 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import moment from 'moment';
 import { Form, HasError, AlertError} from 'vform';
+
+
+import SweetAlert2 from 'sweetalert2'
+window.swal = SweetAlert2;
+
+const toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+window.Toast = toast;
+
+import VueProgressBar from 'vue-progressbar';
 window.Form = Form;
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
@@ -16,6 +32,7 @@ import VueRouter from 'vue-router';
 import Dashboard from './components/Dashboard.vue';
 import Profile from './components/Profile.vue';
 import Users from './components/Users.vue';
+
 
 Vue.use(VueRouter);
 
@@ -30,6 +47,22 @@ const router = new VueRouter({
 	base: 'laravue',
 	routes
 });
+
+Vue.filter('upText', function(text){
+	return text.charAt(0).toUpperCase() + text.slice(1);
+});
+
+Vue.filter('myDate', function(created){
+	return moment(created).format('MMMM Do YYYY');
+});
+
+Vue.use(VueProgressBar, {
+	color : 'rgb(143, 255, 199)',
+	failedColor : 'red',
+	height : '2px'
+});
+
+window.Fire = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
