@@ -32,6 +32,7 @@ import VueRouter from 'vue-router';
 import Dashboard from './components/Dashboard.vue';
 import Profile from './components/Profile.vue';
 import Users from './components/Users.vue';
+import Developer from './components/Developer.vue';
 
 
 Vue.use(VueRouter);
@@ -40,6 +41,7 @@ let routes = [
 	{ path : '/dashboard', component : Dashboard },
 	{ path : '/profile', component : Profile },
 	{ path : '/users', component : Users },
+	{ path : '/developer', component : Developer }
 ];
 
 const router = new VueRouter({
@@ -61,6 +63,22 @@ Vue.use(VueProgressBar, {
 	failedColor : 'red',
 	height : '2px'
 });
+
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
+);
+
 
 window.Fire = new Vue();
 /**
