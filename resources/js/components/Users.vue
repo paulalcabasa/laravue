@@ -226,3 +226,21 @@
         }
     }
 </script>
+
+<style>
+.modal{
+ padding: 0 !important;
+}
+.modal-dialog {
+  max-width: 80% !important;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-content {
+  border-radius: 0 !important;
+  height: 100%;
+}
+
+</style>
