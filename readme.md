@@ -1,11 +1,11 @@
-## TO Install application
+## To install application
 
 1. composer install
 2. npm install
 3. create database on mysql
 4. paste .env file
 5. php artisan passport:install
-
+6. php artisan migrate 
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
